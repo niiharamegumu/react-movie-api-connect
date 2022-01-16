@@ -1,5 +1,5 @@
 import { VFC, useState, useEffect } from "react";
-import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Heading, Image, Text } from "@chakra-ui/react";
 
 import { ImageBaseUrl, mvAxs } from "../../config/mv-api/settings";
 
@@ -37,13 +37,13 @@ export const Row: VFC<Props> = (props) => {
       <Heading as="h2" fontSize={{ base: "xl", md: "2xl", lg: "3xl" }} mb={2}>
         {title}
       </Heading>
-      <Flex overflowX="scroll" overflowY="hidden" gap={5} pb={2}>
+      <Grid
+        gap={5}
+        justify="center"
+        templateColumns="repeat(auto-fit, minmax(330px, 1fr))"
+      >
         {movies.map((movie) => (
-          <Box
-            key={movie.id}
-            minW={{ base: "80%", md: isLargeRow ? "50%" : "calc(100vw / 3)" }}
-            cursor="pointer"
-          >
+          <GridItem key={movie.id} cursor="pointer">
             <Box overflow="hidden">
               <Image
                 _hover={{
@@ -65,9 +65,9 @@ export const Row: VFC<Props> = (props) => {
             >
               {movie.title || movie.name}
             </Text>
-          </Box>
+          </GridItem>
         ))}
-      </Flex>
+      </Grid>
     </Box>
   );
 };

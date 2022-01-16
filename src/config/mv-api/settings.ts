@@ -9,7 +9,7 @@ export const mvAxs = axios.create({
 });
 
 export const mvReqUrls = {
-  feachTrending: `/trending/all/week?api_key=${API_KEY}&language=en-us`,
+  feachTrending: `/trending/all/week?api_key=${API_KEY}&language=ja`,
   feachNetflixOriginals: `/discover/tv?api_key=${API_KEY}&with_networks=213`,
   feactTopRated: `/discover/tv?api_key=${API_KEY}&languager=en-us`,
   feactActionMovies: `/discover/tv?api_key=${API_KEY}&with_genres=28`,

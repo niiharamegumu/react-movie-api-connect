@@ -14,16 +14,6 @@ function App() {
         fetchUrl={mvReqUrls.feachTrending}
         isLargeRow={false}
       />
-      <Row
-        title="Netflix Originals."
-        fetchUrl={mvReqUrls.feachNetflixOriginals}
-        isLargeRow={false}
-      />
-      <Row
-        title="Top Rated."
-        fetchUrl={mvReqUrls.feactTopRated}
-        isLargeRow={false}
-      />
     </ChakraProvider>
   );
 }
