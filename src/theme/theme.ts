@@ -10,6 +10,15 @@ const theme = extendTheme({
       },
     },
   },
+  components: {
+    Button: {
+      baseStyle: {
+        _focus: {
+          boxShadow: "unset",
+        },
+      },
+    },
+  },
 });
 
 export default theme;
