@@ -1,9 +1,26 @@
-import { useState } from "react";
+import { ChakraProvider } from "@chakra-ui/react";
+import "@fontsource/cormorant-garamond";
+import "@fontsource/noto-sans-georgian";
+
+import { Row } from "./component/organisms/Row";
+import { mvReqUrls } from "./config/mv-api/settings";
+import theme from "./theme/theme";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <div className="App">init</div>;
+  return (
+    <ChakraProvider theme={theme}>
+      <Row
+        title="Trending Now"
+        fetchUrl={mvReqUrls.feachTrending}
+        isLargeRow={false}
+      />
+      <Row
+        title="Netflix Originals"
+        fetchUrl={mvReqUrls.feachNetflixOriginals}
+        isLargeRow={false}
+      />
+    </ChakraProvider>
+  );
 }
 
 export default App;
