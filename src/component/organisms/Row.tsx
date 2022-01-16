@@ -33,15 +33,15 @@ export const Row: VFC<Props> = (props) => {
   console.log(movies);
 
   return (
-    <Box mb={10}>
+    <Box mb={6}>
       <Heading as="h2" fontSize={{ base: "xl", md: "2xl", lg: "3xl" }} mb={2}>
         {title}
       </Heading>
-      <Flex overflowX="scroll" overflowY="hidden" gap={{ base: 10, md: 5 }}>
+      <Flex overflowX="scroll" overflowY="hidden" gap={5}>
         {movies.map((movie) => (
           <Box
             key={movie.id}
-            minW={isLargeRow ? "50%" : "calc(100vw / 3)"}
+            minW={{ base: "80%", md: isLargeRow ? "50%" : "calc(100vw / 3)" }}
             cursor="pointer"
           >
             <Box overflow="hidden">
@@ -57,7 +57,14 @@ export const Row: VFC<Props> = (props) => {
                 alt={movie.title || movie.name}
               />
             </Box>
-            <Text fontSize="lg">{movie.title || movie.name}</Text>
+            <Text
+              fontSize={{ base: "sm", lg: "lg" }}
+              overflow="hidden"
+              textOverflow="ellipsis"
+              whiteSpace="nowrap"
+            >
+              {movie.title || movie.name}
+            </Text>
           </Box>
         ))}
       </Flex>
