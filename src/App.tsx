@@ -1,19 +1,18 @@
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, Box } from "@chakra-ui/react";
 import "@fontsource/cormorant-garamond";
 import "@fontsource/noto-sans-georgian";
 
-import { Row } from "./component/organisms/Row";
-import { mvReqUrls } from "./config/mv-api/settings";
+import { MvList } from "./component/organisms/MvList";
+import { SearchMv } from "./component/organisms/SearchMv";
 import theme from "./theme/theme";
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Row
-        title="Trending Now."
-        fetchUrl={mvReqUrls.feachTrending}
-        isLargeRow={false}
-      />
+      <Box p="30px 0">
+        <SearchMv />
+        <MvList title="Global Trending Now." isLargeRow={false} />
+      </Box>
     </ChakraProvider>
   );
 }
