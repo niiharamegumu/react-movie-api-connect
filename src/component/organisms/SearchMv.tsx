@@ -36,7 +36,7 @@ export const SearchMv: VFC = memo(() => {
     >
       <Box>
         <SelectWithLabel
-          labelText="Language"
+          labelText="Media"
           options={filterOpt.media.choices}
           size="sm"
           onChange={onChangeSelectMedia}
@@ -44,7 +44,7 @@ export const SearchMv: VFC = memo(() => {
       </Box>
       <Box>
         <SelectWithLabel
-          labelText="Media"
+          labelText="Terms"
           options={filterOpt.terms.choices}
           size="sm"
           onChange={onChangeSelectTerms}
@@ -52,7 +52,7 @@ export const SearchMv: VFC = memo(() => {
       </Box>
       <Box>
         <SelectWithLabel
-          labelText="Terms"
+          labelText="Language"
           options={filterOpt.language.choices}
           size="sm"
           onChange={onChangeSelectLanguage}
