@@ -72,7 +72,7 @@ export const MvList: VFC<Props> = (props) => {
               />
             </Box>
             <Text
-              fontSize={{ base: "sm", lg: "lg" }}
+              fontSize={{ base: "sm", lg: "md" }}
               overflow="hidden"
               textOverflow="ellipsis"
               whiteSpace="nowrap"

@@ -14,6 +14,10 @@ export const filterOpt = {
         value: "de",
         label: "Deutsch",
       },
+      {
+        value: "ko",
+        label: "한국어",
+      },
     ],
   },
   media: {
