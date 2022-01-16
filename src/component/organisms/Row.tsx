@@ -37,7 +37,7 @@ export const Row: VFC<Props> = (props) => {
       <Heading as="h2" fontSize={{ base: "xl", md: "2xl", lg: "3xl" }} mb={2}>
         {title}
       </Heading>
-      <Flex overflowX="scroll" overflowY="hidden" gap={5}>
+      <Flex overflowX="scroll" overflowY="hidden" gap={5} pb={2}>
         {movies.map((movie) => (
           <Box
             key={movie.id}

@@ -10,13 +10,18 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Row
-        title="Trending Now"
+        title="Trending Now."
         fetchUrl={mvReqUrls.feachTrending}
         isLargeRow={false}
       />
       <Row
-        title="Netflix Originals"
+        title="Netflix Originals."
         fetchUrl={mvReqUrls.feachNetflixOriginals}
+        isLargeRow={false}
+      />
+      <Row
+        title="Top Rated."
+        fetchUrl={mvReqUrls.feactTopRated}
         isLargeRow={false}
       />
     </ChakraProvider>
