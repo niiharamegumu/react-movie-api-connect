@@ -15,7 +15,7 @@ function App() {
         <SearchMv />
         <MvList
           title="Global Trending Now."
-          isLargeRow={width > 740 ? true : false}
+          isLargeRow={width > 740 ? false : true}
         />
       </Box>
     </ChakraProvider>
