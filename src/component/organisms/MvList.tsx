@@ -1,5 +1,13 @@
-import { VFC, useState, useEffect } from "react";
-import { Box, Grid, GridItem, Heading, Image, Text } from "@chakra-ui/react";
+import { VFC, useState, useEffect, useCallback } from "react";
+import {
+  Box,
+  Grid,
+  GridItem,
+  Heading,
+  Image,
+  Text,
+  useDisclosure,
+} from "@chakra-ui/react";
 
 import {
   feachTrending,
@@ -7,24 +15,20 @@ import {
   mvAxs,
 } from "../../config/mv-api/settings";
 import { useSearchFilter } from "../../hooks/useSearchFilter";
+import { SelectMvModal } from "./SelectMvModal";
+import { Movie } from "../../type/movie";
 
 type Props = {
   title: string;
   isLargeRow?: boolean;
 };
 
-type Movie = {
-  id: string;
-  name: string;
-  title: string;
-  original_name: string;
-  poster_path: string;
-  backdrop_path: string;
-};
-
 export const MvList: VFC<Props> = (props) => {
   const { title, isLargeRow } = props;
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [movie, setMovie] = useState<Movie>({} as Movie);
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const { searchFilter } = useSearchFilter();
   const fetchUrl = feachTrending(searchFilter);
 
@@ -37,6 +41,13 @@ export const MvList: VFC<Props> = (props) => {
     }
     fetchData();
   }, [fetchUrl]);
+  const openMvModal = useCallback(
+    (movie: Movie) => {
+      onOpen();
+      setMovie(movie);
+    },
+    [movie]
+  );
 
   return (
     <Box mb={6}>
@@ -57,7 +68,11 @@ export const MvList: VFC<Props> = (props) => {
         }}
       >
         {movies.map((movie, index) => (
-          <GridItem key={movie.id} cursor="pointer">
+          <GridItem
+            key={movie.id}
+            cursor="pointer"
+            onClick={() => openMvModal(movie)}
+          >
             <Box overflow="hidden">
               <Image
                 _hover={{
@@ -68,6 +83,7 @@ export const MvList: VFC<Props> = (props) => {
                 src={`${ImageBaseUrl}${
                   isLargeRow ? movie.poster_path : movie.backdrop_path
                 }`}
+                w="100%"
                 alt={movie.title || movie.name}
               />
             </Box>
@@ -82,6 +98,7 @@ export const MvList: VFC<Props> = (props) => {
           </GridItem>
         ))}
       </Grid>
+      <SelectMvModal isOpen={isOpen} onClose={onClose} movie={movie} />
     </Box>
   );
 };
