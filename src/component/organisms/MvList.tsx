@@ -17,6 +17,7 @@ import {
 import { useSearchFilter } from "../../hooks/useSearchFilter";
 import { SelectMvModal } from "./SelectMvModal";
 import { Movie } from "../../type/movie";
+import { useWindowDimensions } from "../../hooks/useWindowDimensions";
 
 type Props = {
   title: string;
@@ -25,8 +26,14 @@ type Props = {
 
 export const MvList: VFC<Props> = (props) => {
   const { title, isLargeRow } = props;
+  const acticeStyle = {
+    transform: "scale(1.1)",
+    filter: "grayscale(100%)",
+  };
+
   const [movies, setMovies] = useState<Movie[]>([]);
   const [movie, setMovie] = useState<Movie>({} as Movie);
+  const { width } = useWindowDimensions();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { searchFilter } = useSearchFilter();
@@ -75,11 +82,9 @@ export const MvList: VFC<Props> = (props) => {
           >
             <Box overflow="hidden">
               <Image
-                _hover={{
-                  transition: "all 0.4s",
-                  transform: "scale(1.2)",
-                  opacity: 0.6,
-                }}
+                transition="all .2s"
+                _hover={width > 500 ? acticeStyle : {}}
+                _active={width <= 500 ? acticeStyle : {}}
                 src={`${ImageBaseUrl}${
                   isLargeRow ? movie.poster_path : movie.backdrop_path
                 }`}
