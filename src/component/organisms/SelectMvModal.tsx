@@ -10,6 +10,7 @@ import {
   ModalHeader,
   Box,
   Image,
+  ModalOverlay,
 } from "@chakra-ui/react";
 import { VFC } from "react";
 
@@ -26,13 +27,18 @@ export const SelectMvModal: VFC<Props> = (props) => {
   const { isOpen, movie, onClose } = props;
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="3xl" isCentered={true}>
+      <ModalOverlay bgColor="rgba(0,0,0,.6)" />
       <ModalContent
-        borderRadius={0}
-        backdropFilter="blur(14px)"
-        bgColor="rgba(0,0,0,.5)"
+        borderRadius={{ base: 0, lg: 30 }}
+        backdropFilter="blur(9px)"
+        bgColor="rgba(255,255,255,0.3)"
       >
         <Box>
-          <Image src={`${ImageBaseUrl}${movie.backdrop_path}`} />
+          <Image
+            src={`${ImageBaseUrl}${movie.backdrop_path}`}
+            borderTopLeftRadius={{ base: 0, lg: 30 }}
+            borderTopRightRadius={{ base: 0, lg: 30 }}
+          />
         </Box>
         <ModalHeader>
           <Heading as="h2" fontSize={{ base: "sm", sm: "lg" }}>
