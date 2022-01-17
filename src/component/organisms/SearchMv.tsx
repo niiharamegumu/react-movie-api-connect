@@ -28,11 +28,13 @@ export const SearchMv: VFC = memo(() => {
 
   return (
     <Flex
-      gap={{ base: 6, md: 8, lg: 12 }}
-      justify="center"
+      gap={{ base: 4, md: 8, lg: 12 }}
+      justify={{ base: "space-between", sm: "center" }}
       align="center"
-      flexDirection={{ base: "column", sm: "row" }}
+      flexDirection="row"
+      flexWrap="wrap"
       mb={10}
+      p="0 20px"
     >
       <Box>
         <SelectWithLabel

@@ -18,6 +18,15 @@ const theme = extendTheme({
         },
       },
     },
+    ModalCloseButton: {
+      baseStyle: {
+        control: {
+          _focus: {
+            boxShadow: "none",
+          },
+        },
+      },
+    },
   },
 });
 
