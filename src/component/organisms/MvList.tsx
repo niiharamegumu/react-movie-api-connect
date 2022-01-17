@@ -26,7 +26,7 @@ type Props = {
 
 export const MvList: VFC<Props> = (props) => {
   const { title, isLargeRow } = props;
-  const acticeStyle = {
+  const activeStyle = {
     transform: "scale(1.1)",
     filter: "grayscale(100%)",
   };
@@ -83,8 +83,8 @@ export const MvList: VFC<Props> = (props) => {
             <Box overflow="hidden">
               <Image
                 transition="all .2s"
-                _hover={width > 500 ? acticeStyle : {}}
-                _active={width <= 500 ? acticeStyle : {}}
+                _hover={width > 500 ? activeStyle : {}}
+                _active={width <= 500 ? activeStyle : {}}
                 src={`${ImageBaseUrl}${
                   isLargeRow ? movie.poster_path : movie.backdrop_path
                 }`}
