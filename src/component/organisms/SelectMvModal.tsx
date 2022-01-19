@@ -26,7 +26,7 @@ type Props = {
 
 export const SelectMvModal: VFC<Props> = (props) => {
   const { isOpen, movie, onClose } = props;
-  const { width } = useWindowDimensions();
+  const { width,height } = useWindowDimensions();
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="3xl" isCentered={true}>
@@ -35,7 +35,7 @@ export const SelectMvModal: VFC<Props> = (props) => {
         borderRadius={{ base: 0, lg: 30 }}
         backdropFilter="blur(9px)"
         bgColor="rgba(255,255,255,0.3)"
-        h={{base: "100%", md: "auto"}}
+        h={width <= 500 ? height : "auto"}
       >
         <Box>
           <Image
