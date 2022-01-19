@@ -35,7 +35,7 @@ export const SelectMvModal: VFC<Props> = (props) => {
         borderRadius={{ base: 0, lg: 30 }}
         backdropFilter="blur(9px)"
         bgColor="rgba(255,255,255,0.3)"
-        h={width <= 500 ? height : "auto"}
+        h={width <= 500 ? `${height}px` : "auto"}
       >
         <Box>
           <Image
