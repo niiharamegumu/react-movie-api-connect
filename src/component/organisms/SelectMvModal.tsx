@@ -56,7 +56,9 @@ export const SelectMvModal: VFC<Props> = (props) => {
             Release : {movie.release_date || "Not Data ..."}
           </Text>
         </ModalHeader>
-        <ModalBody>{movie.overview || "Not Description ..."}</ModalBody>
+        <ModalBody fontSize={{ base: "sm", md: "lg" }}>
+          {movie.overview || "Not Description ..."}
+        </ModalBody>
 
         <ModalFooter>
           <Button
