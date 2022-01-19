@@ -26,16 +26,16 @@ type Props = {
 
 export const SelectMvModal: VFC<Props> = (props) => {
   const { isOpen, movie, onClose } = props;
-  const { width,height } = useWindowDimensions();
+  const { width, height } = useWindowDimensions();
+  const modalSize = width <= 500 ? "full" : "3xl";
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size="3xl" isCentered={true}>
-      <ModalOverlay bgColor="rgba(0,0,0,.6)" h="100%" />
+    <Modal isOpen={isOpen} onClose={onClose} size={modalSize} isCentered={true}>
+      <ModalOverlay bgColor="rgba(0,0,0,.6)" />
       <ModalContent
         borderRadius={{ base: 0, lg: 30 }}
         backdropFilter="blur(9px)"
         bgColor="rgba(255,255,255,0.3)"
-        h={width <= 500 ? `${height}px` : "auto"}
       >
         <Box>
           <Image
