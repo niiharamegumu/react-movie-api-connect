@@ -15,6 +15,7 @@ import {
 import { VFC } from "react";
 
 import { ImageBaseUrl } from "../../config/mv-api/settings";
+import { useWindowDimensions } from "../../hooks/useWindowDimensions";
 import { Movie } from "../../type/movie";
 
 type Props = {
@@ -25,14 +26,16 @@ type Props = {
 
 export const SelectMvModal: VFC<Props> = (props) => {
   const { isOpen, movie, onClose } = props;
+  const { width } = useWindowDimensions();
+
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="3xl" isCentered={true}>
-      <ModalOverlay bgColor="rgba(0,0,0,.6)" h="100%" />
+      <ModalOverlay bgColor="rgba(0,0,0,.6)" h={width <= 500 ? `${window.innerHeight}px` : "100%"} />
       <ModalContent
         borderRadius={{ base: 0, lg: 30 }}
         backdropFilter="blur(9px)"
         bgColor="rgba(255,255,255,0.3)"
-        h="100%"
+        h="90vh"
       >
         <Box>
           <Image
