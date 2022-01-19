@@ -27,11 +27,12 @@ export const SelectMvModal: VFC<Props> = (props) => {
   const { isOpen, movie, onClose } = props;
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="3xl" isCentered={true}>
-      <ModalOverlay bgColor="rgba(0,0,0,.6)" />
+      <ModalOverlay bgColor="rgba(0,0,0,.6)" h="100%" />
       <ModalContent
         borderRadius={{ base: 0, lg: 30 }}
         backdropFilter="blur(9px)"
         bgColor="rgba(255,255,255,0.3)"
+        h="100%"
       >
         <Box>
           <Image
