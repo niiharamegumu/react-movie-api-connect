@@ -12,3 +12,7 @@ export const mvAxs = axios.create({
 export const feachTrending = (searchFilter: SearchFilter) => {
   return `/trending/${searchFilter.media}/${searchFilter.terms}?api_key=${API_KEY}&language=${searchFilter.language}`;
 };
+
+export const feachNetflixOriginals = () => {
+  return `/discover/movie?api_key=${API_KEY}&with_networks=213&language=ja&region=JP`;
+};
