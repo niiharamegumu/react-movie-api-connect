@@ -9,12 +9,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
-import {
-  feachTrending,
-  ImageBaseUrl,
-  mvAxs,
-} from "../../config/mv-api/settings";
-import { useSearchFilter } from "../../hooks/useSearchFilter";
+import { ImageBaseUrl, mvAxs } from "../../config/mv-api/settings";
 import { SelectMvModal } from "./SelectMvModal";
 import { Movie } from "../../type/movie";
 import { useWindowDimensions } from "../../hooks/useWindowDimensions";
@@ -22,10 +17,11 @@ import { useWindowDimensions } from "../../hooks/useWindowDimensions";
 type Props = {
   title: string;
   isLargeRow?: boolean;
+  fetchUrl: string;
 };
 
 export const MvList: VFC<Props> = (props) => {
-  const { title, isLargeRow } = props;
+  const { title, isLargeRow, fetchUrl } = props;
   const activeStyle = {
     transform: "scale(1.1)",
     filter: "grayscale(100%)",
@@ -36,8 +32,6 @@ export const MvList: VFC<Props> = (props) => {
   const { width } = useWindowDimensions();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { searchFilter } = useSearchFilter();
-  const fetchUrl = feachTrending(searchFilter);
 
   useEffect(() => {
     async function fetchData() {
@@ -89,6 +83,8 @@ export const MvList: VFC<Props> = (props) => {
                   isLargeRow ? movie.poster_path : movie.backdrop_path
                 }`}
                 w="100%"
+                h={{ base: "500px", sm: "700px" }}
+                objectFit="cover"
                 alt={movie.title || movie.name}
               />
             </Box>
