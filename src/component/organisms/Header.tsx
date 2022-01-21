@@ -1,4 +1,4 @@
-import { Link as ChakraLink, Flex } from "@chakra-ui/react";
+import { Flex, Wrap } from "@chakra-ui/react";
 import { VFC } from "react";
 import { Link } from "react-router-dom";
 
@@ -13,12 +13,12 @@ export const Header: VFC = () => {
       mb="20px"
       fontFamily="Cormorant Garamond"
     >
-      <ChakraLink fontWeight="800" fontSize={{ base: "md", md: "xl" }}>
+      <Wrap fontWeight="800" fontSize={{ base: "md", md: "xl" }}>
         <Link to="/">TREND</Link>
-      </ChakraLink>
-      <ChakraLink fontWeight="800" fontSize={{ base: "md", md: "xl" }}>
+      </Wrap>
+      <Wrap fontWeight="800" fontSize={{ base: "md", md: "xl" }}>
         <Link to="/netflix-original">NETFLIX ORIGINAL</Link>
-      </ChakraLink>
+      </Wrap>
     </Flex>
   );
 };
