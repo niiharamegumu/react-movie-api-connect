@@ -26,6 +26,8 @@ export const SearchFilterProvider = (props: Props) => {
     language: filterOpt.language.default,
     media: filterOpt.media.default,
     terms: filterOpt.terms.default,
+    mvGenreId: filterOpt.mvGenres.default,
+    tvGenreId: filterOpt.tvGenres.default,
   });
   return (
     <SearchFilterContext.Provider value={{ searchFilter, setSearchFilter }}>
