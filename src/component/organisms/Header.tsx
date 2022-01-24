@@ -17,7 +17,10 @@ export const Header: VFC = () => {
         <Link to="/">TREND</Link>
       </Wrap>
       <Wrap fontWeight="800" fontSize={{ base: "md", md: "xl" }}>
-        <Link to="/netflix-original">NETFLIX ORIGINAL</Link>
+        <Link to="/netflix-original">NETFLIX</Link>
+      </Wrap>
+      <Wrap fontWeight="800" fontSize={{ base: "md", md: "xl" }}>
+        <Link to="/find-mv">FIND MOVIE</Link>
       </Wrap>
     </Flex>
   );
