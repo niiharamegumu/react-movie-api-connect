@@ -8,11 +8,15 @@ export const PageTrend: VFC = memo(() => {
   const { searchFilter } = useSearchFilter();
   return (
     <>
-      <SearchMv />
+      <SearchMv filters={["Media", "Terms", "Language"]} />
       <MvList
         title="Global Trending Now."
         isLargeRow={true}
-        fetchUrl={feachTrending(searchFilter)}
+        fetchUrl={feachTrending(
+          searchFilter.media,
+          searchFilter.terms,
+          searchFilter.language
+        )}
       />
     </>
   );
