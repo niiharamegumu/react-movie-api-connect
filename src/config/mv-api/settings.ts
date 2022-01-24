@@ -9,10 +9,22 @@ export const mvAxs = axios.create({
   baseURL: BASE_URL,
 });
 
-export const feachTrending = (searchFilter: SearchFilter) => {
-  return `/trending/${searchFilter.media}/${searchFilter.terms}?api_key=${API_KEY}&language=${searchFilter.language}`;
+export const feachTrending = (
+  media: string = "all",
+  terms: string = "day",
+  language: string = "ja"
+) => {
+  return `/trending/${media}/${terms}?api_key=${API_KEY}&language=${language}`;
 };
 
-export const feachNetflixOriginals = () => {
-  return `/discover/movie?api_key=${API_KEY}&with_networks=213&language=ja&region=JP`;
+export const feachNetflixOriginals = (tvGenreId: string = "all") => {
+  return `/discover/tv?api_key=${API_KEY}&with_networks=213${
+    tvGenreId === "all" ? "" : "&with_genres=" + tvGenreId
+  }&language=ja`;
+};
+
+export const findMvByGenres = (mvGenreId: string = "all") => {
+  return `/discover/movie?api_key=${API_KEY}${
+    mvGenreId === "all" ? "" : "&with_genres=" + mvGenreId
+  }&language=ja`;
 };
