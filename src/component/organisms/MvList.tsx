@@ -1,4 +1,4 @@
-import { VFC, useState, useEffect, useCallback } from "react";
+import { VFC, useState, useEffect, useCallback, memo } from "react";
 import {
   Box,
   Grid,
@@ -20,7 +20,7 @@ type Props = {
   fetchUrl: string;
 };
 
-export const MvList: VFC<Props> = (props) => {
+export const MvList: VFC<Props> = memo((props) => {
   const { title, isLargeRow, fetchUrl } = props;
   const activeStyle = {
     transform: "scale(1.1)",
@@ -35,7 +35,6 @@ export const MvList: VFC<Props> = (props) => {
 
   useEffect(() => {
     async function fetchData() {
-      console.log(fetchUrl);
       const request = await mvAxs.get(fetchUrl);
       setMovies(request.data.results);
       return request;
@@ -102,4 +101,4 @@ export const MvList: VFC<Props> = (props) => {
       <SelectMvModal isOpen={isOpen} onClose={onClose} movie={movie} />
     </Box>
   );
-};
+});
